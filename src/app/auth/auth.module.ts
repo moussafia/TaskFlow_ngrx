@@ -7,6 +7,8 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { userReducer } from './state/auth.reducer';
 import { AuthEffect } from './state/auth.effect';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import { AuthEffect } from './state/auth.effect';
     ReactiveFormsModule,
     StoreModule.forFeature('user',userReducer),
     EffectsModule.forFeature([AuthEffect]),
-    HttpClientModule
+    HttpClientModule,
+    SweetAlert2Module
   ],
   exports:[
     SignInComponent

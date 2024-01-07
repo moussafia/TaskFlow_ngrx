@@ -9,8 +9,13 @@ export interface AuthUser{
 }
 export interface AuthFailure{
     status: number,
-    error: string,
-    timestamp: string,
+    error: errorAuth,
     message: string,
-    path: string
+}
+export interface errorAuth{
+        status: number,
+        error: string,
+        timestamp: string,
+        message: string,
+        path: string
 }

@@ -8,11 +8,23 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
+  private static readonly jwt_key="accessToken"
   constructor(private http: HttpClient) {}
-  signIn(username:string, password:string):Observable<AuthUser>{
+  get jwt():string{
+    return sessionStorage.getItem(AuthService.jwt_key) ?? '';
+  }
+  private set jwt(value:string){
+    sessionStorage.setItem(AuthService.jwt_key, value);
+  }
+  get isLogIn():boolean{
+    return !!this.jwt;
+  }
+  
+  signIn(email:string, password:string):Observable<AuthUser>{
+    console.log(`${email} and   ${password}`);
     return this.http.post<AuthUser>(`${environment.host}auth/logIn`,
-    {username, password}).pipe(
-      tap(r=>console.log(r))
+    {email, password}).pipe(
+      tap(data=>this.jwt = data.access_token)
     );
   }
 }

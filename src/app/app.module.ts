@@ -14,6 +14,8 @@ import { TaskCreateComponent } from './task/task-create/task-create.component';
 import { AuthModule } from './auth/auth.module';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
       {path: "task/task_list", component: TaskListComponent},
       {path: "task/add", component: TaskCreateComponent}
     ]),
-    AuthModule    
+    AuthModule,
+    SweetAlert2Module    
   ],
   providers: [],
   bootstrap: [AppComponent]

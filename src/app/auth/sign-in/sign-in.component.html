@@ -10,7 +10,7 @@
                 </h1>
                 <div class="w-full flex-1 mt-8" *ngIf="formSignIn">
                     <form class="mx-auto max-w-xs" [formGroup]="formSignIn">
-                        {{formSignIn.value | json}}
+        
                         <input formControlName="email"
                             class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                             type="email" placeholder="Email" />
@@ -50,3 +50,9 @@
         </div>
     </div>
 </div>
+<button
+  [swal]="{ title: 'Save file as...', input: 'text', showDenyButton: true, denyButtonText: 'Don\'t save', showCancelButton: true }"
+>
+
+  Save
+</button>
