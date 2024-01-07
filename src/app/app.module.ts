@@ -39,7 +39,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
       {path: "task/add", component: TaskCreateComponent}
     ]),
     AuthModule,
-    SweetAlert2Module    
+    SweetAlert2Module.forRoot({})    
   ],
   providers: [],
   bootstrap: [AppComponent]

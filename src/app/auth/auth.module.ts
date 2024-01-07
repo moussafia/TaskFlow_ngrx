@@ -21,7 +21,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     StoreModule.forFeature('user',userReducer),
     EffectsModule.forFeature([AuthEffect]),
     HttpClientModule,
-    SweetAlert2Module
+    SweetAlert2Module.forChild({})
   ],
   exports:[
     SignInComponent
