@@ -6,16 +6,37 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { SharedModuleModule } from './shared-module/shared-module.module';
+import { RouterModule } from '@angular/router';
+import { TaskModule } from './task/task.module';
+import { TaskListComponent } from './task/task-list/task-list.component';
+import { TaskCreateComponent } from './task/task-create/task-create.component';
+import { AuthModule } from './auth/auth.module';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+  
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({}, {}),
+    CommonModule,
+    StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ 
+      name:"taskFlow debug",
+      maxAge: 25, 
+      logOnly: environment.production 
+    }),
+    SharedModuleModule,
+    TaskModule,
+    RouterModule.forRoot([
+      {path: "task/task_list", component: TaskListComponent},
+      {path: "task/add", component: TaskCreateComponent}
+    ]),
+    AuthModule    
   ],
   providers: [],
   bootstrap: [AppComponent]

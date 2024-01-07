@@ -1,0 +1,31 @@
+<div class="p-6 " style="margin-top: 80px;">
+    <h1 class="text-gray-600 py-6 text-2xl font-bold ">add of tasks</h1>
+    <form class="flex justify-between bg-white p-6 space-y-4">
+        <div class="h-full" style="width: 30%;">
+                <img src="../../../assets/task.jpg">
+        </div>
+        <div class="flex-col px-6 space-y-6" style="width:70%;">
+            <div class="w-full">
+                <label class="block mb-2 text-md font-medium text-gray-900 dark:text-white">Description</label>
+                <textarea  class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </textarea>
+            </div>
+                <div class="flex flex-col">
+                    <label class="mb-2 text-md font-medium text-gray-900 dark:text-white">start date</label>
+                    <input type="datetime-local" value="2024-01-01T19:30" min="2018-06-07T00:00"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/> 
+                </div>
+                <div class="flex flex-col">
+                    <label class=" mb-2 text-md font-medium text-gray-900 dark:text-white">end date</label>
+                    <input type="datetime-local" value="2024-01-01T19:30" min="2024-01-01T00:00"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/> 
+                </div>    
+                <div class="flex justify-end" style="margin-top:30px">
+                    <button type="button"
+                    class=" text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                       Add task</button>
+                </div>
+        </div>
+    </form>
+
+</div>
