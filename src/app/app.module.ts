@@ -15,6 +15,9 @@ import { AuthModule } from './auth/auth.module';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { DashboardComponent } from './dashboard-admin/dashboard/dashboard.component';
+import { DashboardAdminModule } from './dashboard-admin/dashboard-admin.module';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -34,12 +37,10 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     }),
     SharedModuleModule,
     TaskModule,
-    RouterModule.forRoot([
-      {path: "task/task_list", component: TaskListComponent},
-      {path: "task/add", component: TaskCreateComponent}
-    ]),
     AuthModule,
-    SweetAlert2Module.forRoot({})    
+    SweetAlert2Module.forRoot({}),
+    DashboardAdminModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

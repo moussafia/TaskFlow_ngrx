@@ -8,6 +8,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { userReducer } from './state/auth.reducer';
 import { AuthEffect } from './state/auth.effect';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -21,7 +22,10 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     StoreModule.forFeature('user',userReducer),
     EffectsModule.forFeature([AuthEffect]),
     HttpClientModule,
-    SweetAlert2Module.forChild({})
+    SweetAlert2Module.forChild({}),
+    RouterModule.forChild([
+        {path: "login", component: SignInComponent},  
+    ])
   ],
   exports:[
     SignInComponent

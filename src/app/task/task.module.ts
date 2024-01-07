@@ -4,16 +4,13 @@ import { TaskCreateComponent } from './task-create/task-create.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { RouterModule } from '@angular/router';
 
-
-
 @NgModule({
   declarations: [
     TaskCreateComponent,
     TaskListComponent
   ],
   imports: [
-    CommonModule,
-    RouterModule
+    CommonModule,   
   ],
   exports:[
     TaskListComponent,

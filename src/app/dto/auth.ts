@@ -19,3 +19,6 @@ export interface errorAuth{
         message: string,
         path: string
 }
+export enum Role{
+    MANAGER, USER
+}
