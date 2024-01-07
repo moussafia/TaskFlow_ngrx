@@ -7,3 +7,10 @@ export interface AuthUser{
     email: string;
     roles: string[];
 }
+export interface AuthFailure{
+    status: number,
+    error: string,
+    timestamp: string,
+    message: string,
+    path: string
+}
