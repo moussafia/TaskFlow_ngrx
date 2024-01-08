@@ -30,10 +30,9 @@ export class AuthService {
   set refreshToken(value: string) {
     localStorage.setItem(AuthService._jwtRefresh_key, value);
   }
-  tokenDecoded():TokenDecoced | null{
+  tokenDecoded(): TokenDecoced | null{
     try{
      return jwtDecode(this.jwt);
-
     }catch(Error){
       return null;
     }

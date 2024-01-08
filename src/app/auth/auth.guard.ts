@@ -24,10 +24,8 @@ export class AuthGard implements CanActivate {
   }
 
   checkLogIn(): boolean{
-    this.store.select(getUserAuthSucces).subscribe(data=>{
-      this._role = data.roles
-    })
-    console.log("test in guard "+this.authService.tokenDecoded());
+    this._role=this.authService.tokenDecoded()?.roles.split(" ");
+    console.log("test in guard " +this._role?.includes(this._roleEnum.MANAGER.toString()));
       if(this.authService.isLogIn && this._role?.includes(this._roleEnum.MANAGER.toString())){
         return true;
       }

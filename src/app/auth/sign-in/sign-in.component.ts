@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { AuthFailure, AuthUser } from 'src/app/dto/auth';
 import { AuthState } from '../state/auth.reducer';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sign-in',
@@ -17,8 +18,6 @@ export class SignInComponent implements OnInit {
 
   formSignIn?:FormGroup;
   user$?: Observable<AuthUser>;
-  errorMessage$?: Observable<AuthFailure>;
-
 
   constructor(private fb: FormBuilder, private store:Store<AuthState> , private router:Router) { }
 
@@ -41,8 +40,13 @@ export class SignInComponent implements OnInit {
     }});
      this.store.select(getUserAuthFailure).subscribe({
       next: data=>{
+        console.log(data.error.status);
         if(data.error.status == 401){
-            
+            Swal.fire({
+              title: data.error.message,
+              text: 'Please sign in or signup',
+              icon: 'error',
+            });
         }
       }
      });

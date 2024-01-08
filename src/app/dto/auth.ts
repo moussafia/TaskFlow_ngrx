@@ -20,7 +20,8 @@ export interface errorAuth{
         path: string
 }
 export enum Role{
-    MANAGER, USER
+    MANAGER = 'MANAGER',
+     USER = 'USER'
 }
 export interface TokenDecoced{
 exp: number;
