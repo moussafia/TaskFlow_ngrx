@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModuleModule } from '../shared-module/shared-module.module';
 import { TaskListComponent } from '../task/task-list/task-list.component';
 import { TaskCreateComponent } from '../task/task-create/task-create.component';
+import { AuthGard } from '../auth/auth.guard';
 
 
 
@@ -15,7 +16,7 @@ import { TaskCreateComponent } from '../task/task-create/task-create.component';
   imports: [
     CommonModule,
     RouterModule.forChild([
-      {path:'dashboard',component: DashboardComponent,
+      {path:'dashboard',component: DashboardComponent, canActivate:[AuthGard],
       children:[
         {path: "task/task_list", component: TaskListComponent},
         {path: "task/add", component: TaskCreateComponent}

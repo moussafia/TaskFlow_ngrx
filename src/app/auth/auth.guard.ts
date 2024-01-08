@@ -10,8 +10,8 @@ import { getUserAuthSucces } from './state';
   providedIn: 'root'
 })
 export class AuthGard implements CanActivate {
-  private role?:string[];
-  private readonly roleEnum = Role
+  private _role?:string[];
+  private readonly _roleEnum = Role
   constructor(private store: Store<AuthUser>,
     private authService: AuthService,
     private router: Router){}
@@ -25,12 +25,13 @@ export class AuthGard implements CanActivate {
 
   checkLogIn(): boolean{
     this.store.select(getUserAuthSucces).subscribe(data=>{
-      this.role = data.roles
+      this._role = data.roles
     })
-      if(this.authService.isLogIn && this.role?.includes(this.roleEnum.MANAGER.toString())){
-          return true;
+    console.log("test in guard "+this.authService.tokenDecoded());
+      if(this.authService.isLogIn && this._role?.includes(this._roleEnum.MANAGER.toString())){
+        return true;
       }
-      this.router.navigate(['/logIn']);
+      this.router.navigate(['/login']);
       return false;
   }
 
