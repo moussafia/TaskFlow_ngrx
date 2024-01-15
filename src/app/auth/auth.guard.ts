@@ -25,7 +25,6 @@ export class AuthGard implements CanActivate {
 
   checkLogIn(): boolean{
     this._role=this.authService.tokenDecoded()?.roles.split(" ");
-    console.log("test in guard " +this._role?.includes(this._roleEnum.MANAGER.toString()));
       if(this.authService.isLogIn && this._role?.includes(this._roleEnum.MANAGER.toString())){
         return true;
       }

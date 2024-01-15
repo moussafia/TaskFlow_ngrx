@@ -12,8 +12,7 @@ authUser$ = createEffect(()=>{
         ofType(AuthPageAction.logInUser),
         concatMap(action=>
             this.authService.signIn(action.email, action.password)
-            .pipe(map(user => {
-                return AuthApiAction.logInUserSuccess({user})}),
+            .pipe(map(user =>AuthApiAction.logInUserSuccess({user})),
             catchError(error=> of(AuthApiAction.logInUserFailure({error})))
             ))   
     )
